@@ -14,7 +14,7 @@
             border: 1px solid #ccc;
             margin: 10px;
             padding: 10px;
-            width: 200px;
+            width: 250px;
         }
         table {
             border-collapse: collapse;
@@ -36,8 +36,8 @@
         <input type="date" id="giorno" name="giorno" required><br>
         <label for="descrizione">Descrizione:</label>
         <input type="text" id="descrizione" name="descrizione" required><br>
-        <label for="voto">Voto (1-100):</label>
-        <input type="number" id="voto" name="voto" min="1" max="100" required><br>
+        <label for="voto">Voto (1-100 o Assente o Esente):</label>
+        <input type="text" id="voto" name="voto" placeholder="1-100, Ass o Eson" required><br>
         <input type="submit" value="Crea">
     </form>
 
@@ -49,23 +49,33 @@
         </tr>
         <tr>
             <td>Stellina Dematteis</td>
-            <td><input type="number" class="student-select" data-student="Stellina Dematteis" min="1" max="100" placeholder="Voto"></td>
+            <td>
+                <input type="text" class="student-select" data-student="Stellina Dematteis" placeholder="Voto">
+            </td>
         </tr>
         <tr>
             <td>Tartaruga Benua</td>
-            <td><input type="number" class="student-select" data-student="Tartaruga Benua" min="1" max="100" placeholder="Voto"></td>
+            <td>
+                <input type="text" class="student-select" data-student="Tartaruga Benua" placeholder="Voto">
+            </td>
         </tr>
         <tr>
             <td>Yucky Benua</td>
-            <td><input type="number" class="student-select" data-student="Yucky Benua" min="1" max="100" placeholder="Voto"></td>
+            <td>
+                <input type="text" class="student-select" data-student="Yucky Benua" placeholder="Voto">
+            </td>
         </tr>
         <tr>
             <td>Lollo Benua</td>
-            <td><input type="number" class="student-select" data-student="Lollo Benua" min="1" max="100" placeholder="Voto"></td>
+            <td>
+                <input type="text" class="student-select" data-student="Lollo Benua" placeholder="Voto">
+            </td>
         </tr>
         <tr>
             <td>Leonard Benua</td>
-            <td><input type="number" class="student-select" data-student="Leonard Benua" min="1" max="100" placeholder="Voto"></td>
+            <td>
+                <input type="text" class="student-select" data-student="Leonard Benua" placeholder="Voto">
+            </td>
         </tr>
         <!-- Aggiungi qui altri studenti come sopra -->
     </table>
@@ -78,12 +88,12 @@
             const materia = document.getElementById('materia').value;
             const giorno = document.getElementById('giorno').value;
             const descrizione = document.getElementById('descrizione').value;
+            const voto = document.getElementById('voto').value;
 
             // Crea una tabella per ogni studente
             const selects = document.querySelectorAll('.student-select');
             selects.forEach(select => {
                 const studentName = select.getAttribute('data-student');
-                const voto = select.value;
                 addStudentTable(studentName, materia, giorno, descrizione, voto);
             });
 
@@ -138,4 +148,3 @@
     </script>
 </body>
 </html>
-
