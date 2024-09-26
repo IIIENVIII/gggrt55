@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati</title>
+</head>
+<body>
+    <h1>Inserisci Nuovo Voto</h1>
+    <form>
+        <label for="materia">Materia:</label>
+        <input type="text" id="materia" name="materia"><br>
+        <label for="giorno">Giorno:</label>
+        <input type="date" id="giorno" name="giorno"><br>
+        <label for="descrizione">Descrizione:</label>
+        <input type="text" id="descrizione" name="descrizione"><br>
+        <input type="submit" value="Crea">
+    </form>
+
+    <h2>Lista Studenti</h2>
+    <table border="1">
+        <tr>
+            <th>Studente</th>
+            <th>Voto</th>
+        </tr>
+        <tr>
+            <td>Nome Studente 1</td>
+            <td>
+                <select>
+                    <option value="10">10</option>
+                    <option value="ass">Assente</option>
+                    <option value="eson">Esente</option>
+                </select>
+            </td>
+        </tr>
+        <!-- Altri studenti -->
+    </table>
+    <button>Salva</button>
+</body>
+</html>
