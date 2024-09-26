@@ -4,287 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vita Scolastica</title>
+    <style>
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <h1>Appello</h1>
-    <table border="1">
+    <table>
         <tr>
             <th>Studente</th>
             <th>Presenza</th>
             <th>Assenza</th>
             <th>Ritardo</th>
+            <th>Totale Presenze</th>
+            <th>Totale Assenze</th>
+            <th>Totale Ritardi</th>
         </tr>
         <tr>
             <td>Stellina Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="stellina" value="pres" onclick="updateCount('stellina', 'pres')"> </td>
+            <td><input type="radio" name="stellina" value="ass" onclick="updateCount('stellina', 'ass')"> </td>
+            <td><input type="radio" name="stellina" value="rit" onclick="updateCount('stellina', 'rit')"> </td>
+            <td id="pres-stellina">0</td>
+            <td id="ass-stellina">0</td>
+            <td id="rit-stellina">0</td>
         </tr>
         <tr>
             <td>Tartaruga Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="tartaruga" value="pres" onclick="updateCount('tartaruga', 'pres')"> </td>
+            <td><input type="radio" name="tartaruga" value="ass" onclick="updateCount('tartaruga', 'ass')"> </td>
+            <td><input type="radio" name="tartaruga" value="rit" onclick="updateCount('tartaruga', 'rit')"> </td>
+            <td id="pres-tartaruga">0</td>
+            <td id="ass-tartaruga">0</td>
+            <td id="rit-tartaruga">0</td>
         </tr>
         <tr>
             <td>Yucky Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="yucky" value="pres" onclick="updateCount('yucky', 'pres')"> </td>
+            <td><input type="radio" name="yucky" value="ass" onclick="updateCount('yucky', 'ass')"> </td>
+            <td><input type="radio" name="yucky" value="rit" onclick="updateCount('yucky', 'rit')"> </td>
+            <td id="pres-yucky">0</td>
+            <td id="ass-yucky">0</td>
+            <td id="rit-yucky">0</td>
         </tr>
         <tr>
             <td>Lollo Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="lollo" value="pres" onclick="updateCount('lollo', 'pres')"> </td>
+            <td><input type="radio" name="lollo" value="ass" onclick="updateCount('lollo', 'ass')"> </td>
+            <td><input type="radio" name="lollo" value="rit" onclick="updateCount('lollo', 'rit')"> </td>
+            <td id="pres-lollo">0</td>
+            <td id="ass-lollo">0</td>
+            <td id="rit-lollo">0</td>
         </tr>
         <tr>
             <td>Leonard Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="leonard" value="pres" onclick="updateCount('leonard', 'pres')"> </td>
+            <td><input type="radio" name="leonard" value="ass" onclick="updateCount('leonard', 'ass')"> </td>
+            <td><input type="radio" name="leonard" value="rit" onclick="updateCount('leonard', 'rit')"> </td>
+            <td id="pres-leonard">0</td>
+            <td id="ass-leonard">0</td>
+            <td id="rit-leonard">0</td>
         </tr>
         <tr>
             <td>Sparcky Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
+            <td><input type="radio" name="sparcky" value="pres" onclick="updateCount('sparcky', 'pres')"> </td>
+            <td><input type="radio" name="sparcky" value="ass" onclick="updateCount('sparcky', 'ass')"> </td>
+            <td><input type="radio" name="sparcky" value="rit" onclick="updateCount('sparcky', 'rit')"> </td>
+            <td id="pres-sparcky">0</td>
+            <td id="ass-sparcky">0</td>
+            <td id="rit-sparcky">0</td>
         </tr>
-        <tr>
-            <td>Flaffy Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Grigetta Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Luna Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Luna Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Kendy Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Papero Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Attiglio Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Sunny Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Curt Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Briciola Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Lampo Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cane Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cane Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cicciobello Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Mician Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Michael Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cattivo Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Bambola Calvolfiore</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Teschio Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Teschio Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Robottina Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <!-- Altri studenti -->
+        <!-- Aggiungi altri studenti qui -->
     </table>
+
+    <script>
+        const students = ['stellina', 'tartaruga', 'yucky', 'lollo', 'leonard', 'sparcky'];
+        
+        // Funzione per aggiornare il conteggio delle presenze
+        function updateCount(student, type) {
+            const presId = `pres-${student}`;
+            const assId = `ass-${student}`;
+            const ritId = `rit-${student}`;
+
+            // Recupera i conteggi attuali
+            let presCount = parseInt(localStorage.getItem(presId)) || 0;
+            let assCount = parseInt(localStorage.getItem(assId)) || 0;
+            let ritCount = parseInt(localStorage.getItem(ritId)) || 0;
+
+            // Aggiorna i conteggi in base al tipo
+            if (type === 'pres') {
+                presCount++;
+            } else if (type === 'ass') {
+                assCount++;
+            } else if (type === 'rit') {
+                ritCount++;
+            }
+
+            // Salva i nuovi conteggi nel localStorage
+            localStorage.setItem(presId, presCount);
+            localStorage.setItem(assId, assCount);
+            localStorage.setItem(ritId, ritCount);
+
+            // Aggiorna la visualizzazione dei conteggi nella tabella
+            document.getElementById(presId).innerText = presCount;
+            document.getElementById(assId).innerText = assCount;
+            document.getElementById(ritId).innerText = ritCount;
+        }
+
+        // Funzione per caricare i dati dal localStorage all'avvio
+        function loadCounts() {
+            students.forEach(student => {
+                const presId = `pres-${student}`;
+                const assId = `ass-${student}`;
+                const ritId = `rit-${student}`;
+
+                document.getElementById(presId).innerText = localStorage.getItem(presId) || 0;
+                document.getElementById(assId).innerText = localStorage.getItem(assId) || 0;
+                document.getElementById(ritId).innerText = localStorage.getItem(ritId) || 0;
+            });
+        }
+
+        // Carica i dati all'avvio
+        loadCounts();
+    </script>
 </body>
 </html>
