@@ -15,20 +15,15 @@
             text-align: left;
             border: 1px solid #ccc;
         }
+        .status {
+            display: flex;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>Appello</h1>
     <table>
-        <tr>
-            <th>Studente</th>
-            <th>Presenza</th>
-            <th>Assenza</th>
-            <th>Ritardo</th>
-            <th>Totale Presenze</th>
-            <th>Totale Assenze</th>
-            <th>Totale Ritardi</th>
-        </tr>
         <tr>
             <td>Stellina Dematteis</td>
             <td>
@@ -300,12 +295,12 @@
             </td>
         </tr>
 
-        <!-- Aggiungi altri studenti qui -->
+        <!-- Aggiungi altre righe per gli altri studenti -->
     </table>
 
     <script>
-        const students = ['stellina', 'tartaruga', 'yucky', 'lollo', 'leonard', 'sparcky'];
-        
+        const students = ['stellina', 'tartaruga', 'yucky', 'lollo', 'leonard'];
+
         // Funzione per aggiornare il conteggio delle presenze
         function updateCount(student, type) {
             const presId = `pres-${student}`;
@@ -317,13 +312,19 @@
             let assCount = parseInt(localStorage.getItem(assId)) || 0;
             let ritCount = parseInt(localStorage.getItem(ritId)) || 0;
 
-            // Aggiorna i conteggi in base al tipo
+            // Resetta i conteggi per gli altri tipi
             if (type === 'pres') {
                 presCount++;
+                assCount = Math.max(0, assCount);
+                ritCount = Math.max(0, ritCount);
             } else if (type === 'ass') {
                 assCount++;
+                presCount = Math.max(0, presCount);
+                ritCount = Math.max(0, ritCount);
             } else if (type === 'rit') {
                 ritCount++;
+                presCount = Math.max(0, presCount);
+                assCount = Math.max(0, assCount);
             }
 
             // Salva i nuovi conteggi nel localStorage
