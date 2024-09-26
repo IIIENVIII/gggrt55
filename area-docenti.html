@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Area Docenti</title>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Evita che la pagina si aggiorni
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Esempio di validazione base
+            if (username === "docente" && password === "password123") {
+                // Se la validazione ha successo, reindirizza alla dashboard
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Credenziali non valide. Riprova.");
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Login Area Docenti</h1>
-    <form action="dashboard.html" method="post">
+    <form onsubmit="validateForm(event)">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label>
