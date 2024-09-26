@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Area Studenti</title>
+    <script>
+        // Funzione per gestire il login
+        function login(event) {
+            event.preventDefault(); // Impedisce l'invio del form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Credenziali di esempio (admin / password)
+            if (username === 'admin' && password === 'password') {
+                // Reindirizza alla pagina dashboard.html se le credenziali sono corrette
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Credenziali errate. Riprova.');
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Login Area Studenti</h1>
-    <form action="dashboard.html" method="post">
+    <form onsubmit="login(event)">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password" required><br>
         <input type="submit" value="Accedi">
     </form>
 </body>
