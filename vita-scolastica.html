@@ -3,356 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vita Scolastica</title>
+    <title>Risultati</title>
     <style>
-        table {
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
             margin-top: 20px;
+        }
+        .student-table {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+        }
+        table {
             border-collapse: collapse;
             width: 100%;
         }
         th, td {
-            padding: 10px;
+            padding: 5px;
             text-align: left;
             border: 1px solid #ccc;
-        }
-        .status {
-            display: flex;
-            gap: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Appello</h1>
-    <table>
+    <h1>Inserisci Nuovo Voto</h1>
+    <form id="votoForm">
+        <label for="materia">Materia:</label>
+        <input type="text" id="materia" name="materia" required><br>
+        <label for="giorno">Giorno:</label>
+        <input type="date" id="giorno" name="giorno" required><br>
+        <label for="descrizione">Descrizione:</label>
+        <input type="text" id="descrizione" name="descrizione" required><br>
+        <label for="voto">Voto (1-100 o Assente o Esente):</label>
+        <input type="text" id="voto" name="voto" placeholder="1-100, Ass o Eson" required><br>
+        <input type="submit" value="Crea">
+    </form>
+
+    <h2>Lista Studenti</h2>
+    <table border="1">
+        <tr>
+            <th>Studente</th>
+            <th>Voto</th>
+        </tr>
         <tr>
             <td>Stellina Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Stellina Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Tartaruga Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Tartaruga Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Yucky Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Yucky Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Lollo Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Lollo Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Leonard Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Leonard Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
-            <td>Sparcky Benua</td>
+            <td>Sparky Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Sparky Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Flaffy Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Flaffy Dematteis" placeholder="Voto">
+            </td>
+        </tr>
+        <tr>
+            <td>Tina Dematteis</td>
+            <td>
+                <input type="text" class="student-select" data-student="Tina Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Grigetta Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Grigetta Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Luna Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Luna Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Luna Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Kendy Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Kendy Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Papero Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Papero Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Attiglio Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Attiglio Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Sunny Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Sunny Benua" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Curt Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Curt Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Briciola Dematteis</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Briciola Dematteis" placeholder="Voto">
             </td>
         </tr>
         <tr>
             <td>Lampo Benua</td>
             <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
+                <input type="text" class="student-select" data-student="Lampo Benua" placeholder="Voto">
             </td>
         </tr>
-        <tr>
-            <td>Cane Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cane Benua</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cicciobello Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Mician Dematteis</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Michael Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Cattivo Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Bambola Calvolfiore</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Teschio Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Teschio Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Robottina Temperini</td>
-            <td>
-                <select>
-                    <option value="10">10</option>
-                    <option value="ass">Assente</option>
-                    <option value="eson">Esente</option>
-                </select>
-            </td>
-        </tr>
-
-        <!-- Aggiungi altre righe per gli altri studenti -->
     </table>
-
+    
+    <div class="results-container" id="resultsContainer"></div>
+    
     <script>
-        const students = ['stellina', 'tartaruga', 'yucky', 'lollo', 'leonard'];
+        document.getElementById('votoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const materia = document.getElementById('materia').value;
+            const giorno = document.getElementById('giorno').value;
+            const descrizione = document.getElementById('descrizione').value;
+            const voto = document.getElementById('voto').value;
 
-        // Funzione per aggiornare il conteggio delle presenze
-        function updateCount(student, type) {
-            const presId = `pres-${student}`;
-            const assId = `ass-${student}`;
-            const ritId = `rit-${student}`;
+            // Crea una tabella per ogni studente
+            const selects = document.querySelectorAll('.student-select');
+            selects.forEach(select => {
+                const studentName = select.getAttribute('data-student');
+                addStudentTable(studentName, materia, giorno, descrizione, voto);
+            });
 
-            // Recupera i conteggi attuali
-            let presCount = parseInt(localStorage.getItem(presId)) || 0;
-            let assCount = parseInt(localStorage.getItem(assId)) || 0;
-            let ritCount = parseInt(localStorage.getItem(ritId)) || 0;
+            // Pulisci il modulo dopo l'inserimento
+            document.getElementById('votoForm').reset();
+        });
 
-            // Resetta i conteggi per gli altri tipi
-            if (type === 'pres') {
-                presCount++;
-                assCount = Math.max(0, assCount);
-                ritCount = Math.max(0, ritCount);
-            } else if (type === 'ass') {
-                assCount++;
-                presCount = Math.max(0, presCount);
-                ritCount = Math.max(0, ritCount);
-            } else if (type === 'rit') {
-                ritCount++;
-                presCount = Math.max(0, presCount);
-                assCount = Math.max(0, assCount);
+        function addStudentTable(studentName, materia, giorno, descrizione, voto) {
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            // Crea un div per la tabella dello studente
+            let studentDiv = document.getElementById(`table-${studentName}`);
+            if (!studentDiv) {
+                studentDiv = document.createElement('div');
+                studentDiv.className = 'student-table';
+                studentDiv.id = `table-${studentName}`;
+                resultsContainer.appendChild(studentDiv);
+
+                // Aggiungi intestazione della tabella
+                const tableHeader = `<h3>${studentName}</h3><table><tr><th>Materia</th><th>Data</th><th>Descrizione</th><th>Voto</th></tr>`;
+                studentDiv.innerHTML = tableHeader;
             }
 
-            // Salva i nuovi conteggi nel localStorage
-            localStorage.setItem(presId, presCount);
-            localStorage.setItem(assId, assCount);
-            localStorage.setItem(ritId, ritCount);
-
-            // Aggiorna la visualizzazione dei conteggi nella tabella
-            document.getElementById(presId).innerText = presCount;
-            document.getElementById(assId).innerText = assCount;
-            document.getElementById(ritId).innerText = ritCount;
+            // Aggiungi la nuova riga alla tabella
+            const tableRow = `<tr><td>${materia}</td><td>${giorno}</td><td>${descrizione}</td><td>${voto}</td></tr>`;
+            studentDiv.innerHTML += tableRow;
+            
+            // Salva nel localStorage
+            saveResults(studentName, materia, giorno, descrizione, voto);
         }
 
-        // Funzione per caricare i dati dal localStorage all'avvio
-        function loadCounts() {
-            students.forEach(student => {
-                const presId = `pres-${student}`;
-                const assId = `ass-${student}`;
-                const ritId = `rit-${student}`;
-
-                document.getElementById(presId).innerText = localStorage.getItem(presId) || 0;
-                document.getElementById(assId).innerText = localStorage.getItem(assId) || 0;
-                document.getElementById(ritId).innerText = localStorage.getItem(ritId) || 0;
-            });
+        function saveResults(studentName, materia, giorno, descrizione, voto) {
+            const results = JSON.parse(localStorage.getItem('studentResults')) || {};
+            if (!results[studentName]) {
+                results[studentName] = [];
+            }
+            results[studentName].push({ materia, giorno, descrizione, voto });
+            localStorage.setItem('studentResults', JSON.stringify(results));
         }
 
-        // Carica i dati all'avvio
-        loadCounts();
+        function loadSavedResults() {
+            const results = JSON.parse(localStorage.getItem('studentResults')) || {};
+            for (const student in results) {
+                results[student].forEach(record => {
+                    addStudentTable(student, record.materia, record.giorno, record.descrizione, record.voto);
+                });
+            }
+        }
+
+        // Carica i risultati salvati all'avvio della pagina
+        loadSavedResults();
     </script>
 </body>
 </html>
