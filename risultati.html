@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risultati</title>
+    <style>
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .student-table {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <h1>Inserisci Nuovo Voto</h1>
-    <form>
+    <form id="votoForm">
         <label for="materia">Materia:</label>
-        <input type="text" id="materia" name="materia"><br>
+        <input type="text" id="materia" name="materia" required><br>
         <label for="giorno">Giorno:</label>
-        <input type="date" id="giorno" name="giorno"><br>
+        <input type="date" id="giorno" name="giorno" required><br>
         <label for="descrizione">Descrizione:</label>
-        <input type="text" id="descrizione" name="descrizione"><br>
+        <input type="text" id="descrizione" name="descrizione" required><br>
         <input type="submit" value="Crea">
     </form>
 
@@ -293,8 +315,75 @@
                 </select>
             </td>
         </tr>
+
+        <!-- Aggiungi qui altri studenti come sopra -->
     </table>
     
-    <button>Salva</button>
+    <div class="results-container" id="resultsContainer"></div>
+    
+    <script>
+        document.getElementById('votoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const materia = document.getElementById('materia').value;
+            const giorno = document.getElementById('giorno').value;
+            const descrizione = document.getElementById('descrizione').value;
+
+            // Crea una tabella per ogni studente
+            const selects = document.querySelectorAll('.student-select');
+            selects.forEach(select => {
+                const studentName = select.getAttribute('data-student');
+                const voto = select.value;
+                addStudentTable(studentName, materia, giorno, descrizione, voto);
+            });
+
+            // Pulisci il modulo dopo l'inserimento
+            document.getElementById('votoForm').reset();
+        });
+
+        function addStudentTable(studentName, materia, giorno, descrizione, voto) {
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            // Crea un div per la tabella dello studente
+            let studentDiv = document.getElementById(`table-${studentName}`);
+            if (!studentDiv) {
+                studentDiv = document.createElement('div');
+                studentDiv.className = 'student-table';
+                studentDiv.id = `table-${studentName}`;
+                resultsContainer.appendChild(studentDiv);
+
+                // Aggiungi intestazione della tabella
+                const tableHeader = `<h3>${studentName}</h3><table><tr><th>Materia</th><th>Data</th><th>Descrizione</th><th>Voto</th></tr>`;
+                studentDiv.innerHTML = tableHeader;
+            }
+
+            // Aggiungi la nuova riga alla tabella
+            const tableRow = `<tr><td>${materia}</td><td>${giorno}</td><td>${descrizione}</td><td>${voto}</td></tr>`;
+            studentDiv.innerHTML += tableRow;
+            
+            // Salva nel localStorage
+            saveResults(studentName, materia, giorno, descrizione, voto);
+        }
+
+        function saveResults(studentName, materia, giorno, descrizione, voto) {
+            const results = JSON.parse(localStorage.getItem('studentResults')) || {};
+            if (!results[studentName]) {
+                results[studentName] = [];
+            }
+            results[studentName].push({ materia, giorno, descrizione, voto });
+            localStorage.setItem('studentResults', JSON.stringify(results));
+        }
+
+        function loadSavedResults() {
+            const results = JSON.parse(localStorage.getItem('studentResults')) || {};
+            for (const student in results) {
+                results[student].forEach(record => {
+                    addStudentTable(student, record.materia, record.giorno, record.descrizione, record.voto);
+                });
+            }
+        }
+
+        // Carica i risultati salvati all'avvio della pagina
+        loadSavedResults();
+    </script>
 </body>
 </html>
